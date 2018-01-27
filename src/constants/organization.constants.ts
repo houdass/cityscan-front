@@ -1,0 +1,5 @@
+export const OrganizationConstants = {
+  CLEARINGAGENT: 'CLEARINGAGENT',
+  ECONOMICOPERATOR: 'ECONOMICOPERATOR',
+  MINISTRY: 'MINISTRY'
+};
