@@ -55,7 +55,7 @@ page-login {
     width: 50%;
     height: auto;
     padding-top: 9vh;
-    margin-bottom: 15vh;
+    margin-bottom: 5vh;
   }
   span {
     color: white;
@@ -91,9 +91,10 @@ page-login {
     text-align: center;
     width: 100%;
     margin: 0 auto;
+    margin-top: 20px;
     z-index: 2;
   }
-  ion-button {
-    opacity: 0.8;
+  .login-btn {
+    margin-top: 2vh;
   }
 }
