@@ -35,18 +35,16 @@
 </ion-slides>
 <div class="login-container">
     <img class="logo" src="assets/img/logo2.png"/>
-    <form (submit)="doLogin()">
         <ion-item>
-            <ion-input type="email" placeholder="Email"></ion-input>
+            <ion-input type="email" placeholder="Email" [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="password" placeholder="Password"></ion-input>
+            <ion-input type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
         </ion-item>
-        <button color="primary" ion-button full icon-start class="login-btn">
+        <button color="primary" ion-button full icon-start class="login-btn" (click)="doLogin()">
             <ion-icon name="ios-contact-outline"></ion-icon>
             LOGIN
         </button>
         <p (click)="openResetPassword()"><strong>Forgot your password?</strong></p>
-    </form>
 </div>
 </ion-content>
