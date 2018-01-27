@@ -14,7 +14,6 @@ import { AboutPageModule } from '../pages/about/about.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { EmojiProvider } from '../providers/emoji';
 
 import { HttpInterceptor } from '../config/HttpInterceptor';
 import { SessionDataService } from '../core/session/session-data.service';
@@ -49,7 +48,6 @@ export function httpFactory(xhrBackend: XHRBackend,
   providers: [
     StatusBar,
     SplashScreen,
-    EmojiProvider,
     {
       provide: ErrorHandler,
       useClass: IonicErrorHandler },
