@@ -78,8 +78,7 @@ export class LoginPage {
     'assets/img/bg1.jpg',
     'assets/img/bg2.jpg',
     'assets/img/bg3.jpg',
-    'assets/img/bg4.jpg',
-    'assets/img/bg5.jpg'
+    'assets/img/bg4.jpg'
   ];
   public loginForm: any;
 
