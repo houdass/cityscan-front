@@ -75,21 +75,11 @@ export class LoginPage {
   user: any = {};
 
   backgrounds = [
-    'assets/img/bg7.jpg',
-    'assets/img/bg8.jpg',
-    'assets/img/bg9.jpg',
-    /* 'assets/img/bg4.jpg',
-    'assets/img/bg5.jpg',
-    'assets/img/bg6.jpg',
-    'assets/img/bg7.jpg',
-    'assets/img/bg8.jpg',
-    'assets/img/bg9.jpg',
-    'assets/img/bg10.jpeg',
-    'assets/img/bg11.jpeg',
-    'assets/img/bg12.jpeg',
-    'assets/img/bg13.jpeg',
-    'assets/img/bg14.jpeg',
-    'assets/img/bg15.jpeg' */
+    'assets/img/bg1.jpg',
+    'assets/img/bg2.jpg',
+    'assets/img/bg3.jpg',
+    'assets/img/bg4.jpg',
+    'assets/img/bg5.jpg'
   ];
   public loginForm: any;
 

@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf775893-adca-49e6-973a-a03ad7da703e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/bg10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/bg11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/bg14.jpeg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/bg7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/bg8.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/bg9.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/cityscan.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/logo3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/img/bg1.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cityscan-front.iml" afterPath="$PROJECT_DIR$/.idea/cityscan-front.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/bg14.jpg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/img/bg14.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/img/bg7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/img/bg8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/img/bg9.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/login/login.html" afterPath="$PROJECT_DIR$/src/pages/login/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/login/login.scss" afterPath="$PROJECT_DIR$/src/pages/login/login.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/login/login.ts" afterPath="$PROJECT_DIR$/src/pages/login/login.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -44,8 +35,8 @@
       <file leaf-file-name="login.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/login/login.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="78" column="19" lean-forward="false" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+            <state relative-caret-position="106">
+              <caret line="81" column="24" lean-forward="false" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -198,10 +189,10 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/img" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/img" />
     </key>
   </component>
@@ -228,12 +219,12 @@
       <option name="presentableId" value="Default" />
       <updated>1517055462979</updated>
       <workItem from="1517055464304" duration="4641000" />
-      <workItem from="1517063000437" duration="50000" />
+      <workItem from="1517063000437" duration="177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4691000" />
+    <option name="totallyTimeSpent" value="4818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
@@ -378,8 +369,8 @@
     <entry file="file://$PROJECT_DIR$/src/assets/img/bg4.jpg" />
     <entry file="file://$PROJECT_DIR$/src/pages/login/login.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="78" column="19" lean-forward="false" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+        <state relative-caret-position="106">
+          <caret line="81" column="24" lean-forward="false" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
