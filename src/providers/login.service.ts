@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Events } from 'ionic-angular';
-import { User } from '../models/User';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -9,11 +7,10 @@ import 'rxjs/add/operator/toPromise';
 export class LoginService {
 
   constructor(
-    public http: Http,
-    public events: Events) {
+    public http: Http) {
   }
 
-  login(credentials): Promise<User> {
+  login(credentials): Promise<any> {
     const url = '/auth/login';
 
     return this.http.post(url, credentials)

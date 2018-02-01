@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
-import {NavController, IonicPage} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, IonicPage, LoadingController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
-import {LoginService} from '../../providers/login.service';
-import {SessionService} from '../../core/session/session.service';
+import { LoginService } from '../../providers/login.service';
+import { SessionService } from '../../core/session/session.service';
 
-import {TabsPage} from '../tabs/tabs';
+import { TabsPage } from '../tabs/tabs';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -15,38 +16,43 @@ import 'rxjs/add/operator/catch';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  user: any = {};
-
+  userForm: FormGroup;
+  emailCtrl: FormControl;
+  passwordCtrl: FormControl;
+  loader: any
   backgrounds = [
     'assets/img/bg1.jpg',
     'assets/img/bg2.jpg',
     'assets/img/bg3.jpg',
     'assets/img/bg4.jpg'
   ];
-  public loginForm: any;
 
-  constructor(public navCtrl: NavController,
-              public loginService: LoginService,
-              public sessionService: SessionService) {
+  constructor(private navCtrl: NavController,
+              private loginService: LoginService,
+              private sessionService: SessionService,
+              private fb: FormBuilder,
+              public loadingCtrl: LoadingController) {
+
+    this.emailCtrl = fb.control('', [Validators.required, Validators.minLength(3)]);
+    this.passwordCtrl = fb.control('', Validators.required);
+    this.userForm = fb.group({
+      email: this.emailCtrl,
+      password: this.passwordCtrl
+    });
+
+
+    this.loader = this.loadingCtrl.create({
+      content: 'Please wait...',
+      spinner: 'dots'
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('Hello LoginBackgroundSlider Page');
-  }
-
-  openResetPassword() {
-    console.log('Reset password clicked');
-  }
-
-  doLogin() {
-    debugger
-    const userEmail = this.user.email;
-    const userPassword = this.user.password;
-
-    if (userEmail === '' || userPassword === '') {
-      this.showError();
-    } else {
-      this.loginService.login(this.user)
+  login() {
+    if (this.userForm.valid) {
+      this.loader.present();
+      const email = this.emailCtrl.value;
+      const password = this.passwordCtrl.value;
+      this.loginService.login({ email, password })
       .then((response) => {
         this.loginSucceed(response);
       }, (error) => {
@@ -61,9 +67,15 @@ export class LoginPage {
     } else {
       this.showError();
     }
+    this.loader.dismiss();
   }
 
   showError(error?: any) {
     // console.log('Oops!', 'Login ou mot de passe incorrect', error);
   }
+
+  openResetPassword() {
+    console.log('Open Reset Password');
+  }
+
 }

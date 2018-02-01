@@ -1,50 +1,29 @@
-<!-- <ion-content class="cloud-layer">
-  <ion-row>
-    <ion-col>
-      <br />
-      <img [@flyInBottomSlow]="logoState" src="../../assets/hiit.png" />
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col>
-      <ion-list inset [@flyInBottomFast]="formState">
-        <ion-item>
-          <ion-input type="text" placeholder="Email" [(ngModel)]="user.email"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
-        </ion-item>
-        <br />
-      </ion-list>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col>
-      <button ion-button class="login-button" [@fadeIn]="loginState" (click)="onSubmit()">Login</button>
-    </ion-col>
-  </ion-row>
-</ion-content> -->
 <ion-content class="cloud-layer">
-<ion-slides pager="false" autoplay="2000" loop="true" speed="1500" effect="fade">
-    <ion-slide class="slide-background swiper-no-swiping" *ngFor="let background of backgrounds"
-               [ngStyle]="{'background-image': 'url(' + background +')'}">
-    </ion-slide>
-</ion-slides>
-<div class="login-container">
-    <img class="logo" src="assets/img/logo2.png"/>
-        <ion-item>
-            <ion-input type="email" placeholder="Email" [(ngModel)]="user.email"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
-        </ion-item>
-        <button color="primary" ion-button full round icon-start class="login-btn" (click)="doLogin()">
-            <ion-icon name="ios-contact-outline"></ion-icon>
-            LOGIN
-        </button>
+    <ion-slides pager="false" autoplay="2000" loop="true" speed="1500" effect="fade">
+        <ion-slide class="slide-background swiper-no-swiping" *ngFor="let background of backgrounds"
+                   [ngStyle]="{'background-image': 'url(' + background +')'}">
+        </ion-slide>
+    </ion-slides>
+    <div class="login-container">
+        <img class="logo" src="assets/img/logo2.png"/>
+        <form (ngSubmit)="login()" [formGroup]="userForm">
+            <ion-item>
+                <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="userForm.get('email').hasError('required')">
+                <p ion-text color="danger">Email is required.</p>
+            </ion-item>
+            <ion-item>
+                <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="userForm.get('password').hasError('required')">
+                <p ion-text color="danger">Password is required.</p>
+            </ion-item>
+            <button color="primary" ion-button full round icon-start class="login-btn">
+                <ion-icon name="ios-contact-outline"></ion-icon>
+                LOGIN
+            </button>
+        </form>
         <p (click)="openResetPassword()"><strong>Forgot your password?</strong></p>
-</div>
+    </div>
 </ion-content>
