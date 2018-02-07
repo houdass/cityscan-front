@@ -42,7 +42,7 @@ export class LoginPage {
 
 
     this.loader = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: `Veuillez patienter un instant s'il vous plait...`,
       spinner: 'dots'
     });
   }

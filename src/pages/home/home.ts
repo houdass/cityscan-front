@@ -14,8 +14,28 @@ import 'rxjs/add/operator/filter';
 })
 export class HomePage {
   params: any;
+  productTypeId: any;
   places = [];
   result: any;
+
+  productTypes = [
+    {
+      id: 1,
+      label: 'Appartement'
+    },
+    {
+      id: 2,
+      label: 'Maison / Villa'
+    },
+    {
+      id: 3,
+      label: 'Parking'
+    },
+    {
+      id: 4,
+      label: 'Terrain'
+    }
+    ]
 
   // event emmiter is just RxJs Subject
   typeahead = new EventEmitter<string>();
@@ -36,6 +56,7 @@ export class HomePage {
   }
 
   search() {
+    this.params.productTypeId = this.productTypeId;
     // this.navCtrl.push(AboutPage);
     this.cityScanService
     .analyze(this.params)

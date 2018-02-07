@@ -1,33 +1,45 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
     <ion-row>
         <ion-col>
-            <ion-label>City</ion-label>
+            <ion-label>Lieu</ion-label>
             <ng-select [items]="places"
                        bindLabel="Display"
                        notFoundText="Aucun résultat trouvé"
-                       placeholder="Veuillez choisir une ville"
+                       placeholder="Veuillez choisir un lieu"
                        loadingText="Chargement ..."
                        bindValue="Params"
-                       placeholder="Choisissez un lieu"
                        [(ngModel)]="params"
-                       [typeahead]="typeahead">
+                       [typeahead]="typeahead"
+                       [clearable]="false">
             </ng-select>
-            <p>
-                Selected place : {{ params | json }}
-            </p>
+            ID type de bien : {{ params | json }}
         </ion-col>
     </ion-row>
-
-  <ion-row>
-    <ion-col>
-      <button ion-button (click)="search()">Login</button>
-    </ion-col>
-      <pre>{{ result | json }}</pre>
-  </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-label>Type du bien</ion-label>
+            <ng-select [items]="productTypes"
+                       bindLabel="label"
+                       notFoundText="Aucun résultat trouvé"
+                       placeholder="Veuillez choisir un type de bien"
+                       loadingText="Chargement ..."
+                       bindValue="id"
+                       [(ngModel)]="productTypeId"
+                       [clearable]="false">
+            </ng-select>
+            ID type de bien : {{ productTypeId }}
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <button ion-button (click)="search()">Rechercher</button>
+        </ion-col>
+        <pre>{{ result | json }}</pre>
+    </ion-row>
 </ion-content>

@@ -19,11 +19,12 @@ export class CityScanService {
     .catch(err => Promise.reject(err || 'err'));
   }
 
-  analyze(data): Promise<any> {
-    let search = new URLSearchParams();
-    let key = Object.keys(data)[0];
-    search.append(key, data[key]);
-    return this.http.get(`/cityscan/analyze`, { search })
+  analyze(params): Promise<any> {
+    // let search = new URLSearchParams();
+    // let key = Object.keys(params)[0];
+    // search.append(key, data[key]);
+
+    return this.http.post(`/cityscan/analyze`, params)
     .toPromise()
     .then(response => response.json())
     .catch(err => Promise.reject(err || 'err'));
