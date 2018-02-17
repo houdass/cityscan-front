@@ -67,4 +67,13 @@ export class HomePage {
 
     });
   }
+
+  pdf() {
+    this.cityScanService
+    .pdf()
+    .then((response) => {})
+    .catch((err) => {
+
+    });
+  }
 }
