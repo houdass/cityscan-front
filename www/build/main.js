@@ -983,8 +983,7 @@ var AppConfig = (function () {
     return AppConfig;
 }());
 
-// public static API_ENDPOINT = 'https://cityscan.herokuapp.com/api';
-AppConfig.API_ENDPOINT = 'http://localhost:8080/api';
+AppConfig.API_ENDPOINT = 'https://cityscan.herokuapp.com/api';
 //# sourceMappingURL=app.config.js.map
 
 /***/ }),
