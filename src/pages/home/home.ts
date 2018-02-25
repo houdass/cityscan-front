@@ -1,6 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
-import { AboutPage } from '../about/about';
+import { ListPage } from '../list/list';
 import { CityScanService } from '../../providers/cityscan.service';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -16,7 +16,6 @@ export class HomePage {
   params: any;
   productTypeId: any;
   places = [];
-  result: any;
 
   productTypes = [
     {
@@ -35,7 +34,7 @@ export class HomePage {
       id: 4,
       label: 'Terrain'
     }
-    ]
+  ];
 
   // event emmiter is just RxJs Subject
   typeahead = new EventEmitter<string>();
@@ -57,23 +56,7 @@ export class HomePage {
 
   search() {
     this.params.productTypeId = this.productTypeId;
-    // this.navCtrl.push(AboutPage);
-    this.cityScanService
-    .analyze(this.params)
-    .then((response) => {
-        this.result = response;
-    })
-    .catch((err) => {
-
-    });
-  }
-
-  pdf() {
-    this.cityScanService
-    .pdf()
-    .then((response) => {})
-    .catch((err) => {
-
-    });
+    const params = this.params;
+    this.navCtrl.setRoot(ListPage, { params });
   }
 }

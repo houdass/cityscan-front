@@ -7,9 +7,6 @@
 <ion-content>
     <ion-row>
         <ion-col>
-            <button ion-button color="danger" (click)="pdf()">Pdf</button>
-        </ion-col>
-        <ion-col>
             <ion-label>Lieu</ion-label>
             <ng-select [items]="places"
                        bindLabel="Display"
@@ -21,7 +18,6 @@
                        [typeahead]="typeahead"
                        [clearable]="false">
             </ng-select>
-            ID type de bien : {{ params | json }}
         </ion-col>
     </ion-row>
     <ion-row>
@@ -36,13 +32,11 @@
                        [(ngModel)]="productTypeId"
                        [clearable]="false">
             </ng-select>
-            ID type de bien : {{ productTypeId }}
         </ion-col>
     </ion-row>
     <ion-row>
         <ion-col>
-            <button ion-button (click)="search()">Rechercher</button>
+            <button ion-button float-right (click)="search()">Rechercher</button>
         </ion-col>
-        <pre>{{ result | json }}</pre>
     </ion-row>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, ResponseContentType, URLSearchParams} from '@angular/http';
+import { Http, ResponseContentType, URLSearchParams } from '@angular/http';
 import { saveAs } from 'file-saver';
 
 import 'rxjs/add/operator/toPromise';
@@ -7,9 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class CityScanService {
 
-  constructor(
-    public http: Http) {
-  }
+  constructor(public http: Http) {}
 
   getPlaces(city): Promise<any> {
     let search = new URLSearchParams();

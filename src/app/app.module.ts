@@ -11,6 +11,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { HomePageModule } from '../pages/home/home.module';
 import { TabsPageModule } from '../pages/tabs/tabs.module';
 import { AboutPageModule } from '../pages/about/about.module';
+import { ListPageModule } from '../pages/list/list.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -39,7 +40,8 @@ export function httpFactory(xhrBackend: XHRBackend,
     LoginPageModule,
     HomePageModule,
     TabsPageModule,
-    AboutPageModule
+    AboutPageModule,
+    ListPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

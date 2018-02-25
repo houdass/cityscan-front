@@ -19,7 +19,7 @@ export class LoginPage {
   userForm: FormGroup;
   emailCtrl: FormControl;
   passwordCtrl: FormControl;
-  loader: any
+  loader: any;
   backgrounds = [
     'assets/img/bg1.jpg',
     'assets/img/bg2.jpg',
@@ -45,6 +45,13 @@ export class LoginPage {
       content: `Veuillez patienter un instant s'il vous plait...`,
       spinner: 'dots'
     });
+  }
+
+  ionViewDidLoad() {
+    debugger
+    if (this.sessionService.isAuthenticated()) {
+      this.navCtrl.setRoot(TabsPage);
+    }
   }
 
   login() {

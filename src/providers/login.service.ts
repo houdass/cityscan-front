@@ -6,9 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class LoginService {
 
-  constructor(
-    public http: Http) {
-  }
+  constructor(public http: Http) {}
 
   login(credentials): Promise<any> {
     const url = '/auth/login';

@@ -41,7 +41,7 @@ export class SessionService {
   }
 
   isAuthenticated() {
-    return this.data && this.token;
+    return localStorage.getItem(SessionConstants.SESSION) && localStorage.getItem(SessionConstants.TOKEN);
   }
 
 }
