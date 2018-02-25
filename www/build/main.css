@@ -25275,7 +25275,6 @@ page-list .realestate-image {
 page-list .corner-ribbon {
   z-index: 10;
   width: 100px;
-  background: #387ef5;
   position: absolute;
   text-align: center;
   line-height: 20px;
@@ -25284,9 +25283,25 @@ page-list .corner-ribbon {
   padding: 3px;
 }
 
-page-list .corner-ribbon left {
+page-list .corner-ribbon.left {
+  background: #387ef5;
   top: 15px;
   left: 15px;
+}
+
+page-list .corner-ribbon.bottom {
+  background: #f53d3d;
+  top: 50px;
+}
+
+page-list .corner-ribbon.right {
+  background: #32db64;
+  right: 15px;
+  top: 15px;
+}
+
+page-list .corner-ribbon.right a {
+  color: white;
 }
 
 page-list .bold {

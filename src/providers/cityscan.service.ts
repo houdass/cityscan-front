@@ -38,4 +38,14 @@ export class CityScanService {
     })
     .catch(err => Promise.reject(err || 'err'));
   }
+
+  pdfPost(data): Promise<any> {
+    return this.http.post(`/cityscan/pdf`, data, { responseType: ResponseContentType.Blob })
+    .toPromise()
+    .then(response => {
+      var blob = new Blob([response.blob()], { type: 'application/pdf' });
+      return saveAs(blob, 'cityscan.pdf');
+    })
+    .catch(err => Promise.reject(err || 'err'));
+  }
 }

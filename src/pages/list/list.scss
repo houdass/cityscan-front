@@ -7,7 +7,6 @@ page-list {
   .corner-ribbon {
     z-index: 10;
     width: 100px;
-    background: #387ef5;
     position: absolute;
     text-align: center;
     line-height: 20px;
@@ -15,9 +14,24 @@ page-list {
     color: #f0f0f0;
     padding: 3px;
 
-    left {
+    &.left {
+      background: #387ef5;
       top: 15px;
       left: 15px;
+    }
+
+    &.bottom {
+      background: #f53d3d;
+      top: 50px;
+    }
+
+    &.right {
+      background: #32db64;
+      right: 15px;
+      top: 15px;
+      a {
+        color: white;
+      }
     }
   }
 
