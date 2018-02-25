@@ -48,7 +48,6 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    debugger
     if (this.sessionService.isAuthenticated()) {
       this.navCtrl.setRoot(TabsPage);
     }
