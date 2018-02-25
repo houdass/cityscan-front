@@ -207,10 +207,9 @@ var LoginService = (function () {
 }());
 LoginService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]])
 ], LoginService);
 
-var _a;
 //# sourceMappingURL=login.service.js.map
 
 /***/ }),
@@ -273,10 +272,9 @@ var SessionService = (function () {
 }());
 SessionService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */]])
 ], SessionService);
 
-var _a;
 //# sourceMappingURL=session.service.js.map
 
 /***/ }),
@@ -676,7 +674,6 @@ var LoginPage = (function () {
         });
     }
     LoginPage.prototype.ionViewDidLoad = function () {
-        debugger;
         if (this.sessionService.isAuthenticated()) {
             this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__tabs_tabs__["a" /* TabsPage */]);
         }
@@ -717,10 +714,13 @@ LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-login',template:/*ion-inline-start:"/Users/Youness/Desktop/cityscan-front/src/pages/login/login.html"*/'<ion-content class="cloud-layer">\n    <ion-slides pager="false" autoplay="2000" loop="true" speed="1500" effect="fade">\n        <ion-slide class="slide-background swiper-no-swiping" *ngFor="let background of backgrounds"\n                   [ngStyle]="{\'background-image\': \'url(\' + background +\')\'}">\n        </ion-slide>\n    </ion-slides>\n    <div class="login-container">\n        <img class="logo" src="assets/img/logo.png"/>\n        <form (ngSubmit)="login()" [formGroup]="userForm">\n            <ion-item>\n                <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>\n            </ion-item>\n            <ion-item *ngIf="userForm.get(\'email\').dirty && userForm.get(\'email\').hasError(\'required\')">\n                <p ion-text color="danger">Email is required.</p>\n            </ion-item>\n            <ion-item>\n                <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>\n            </ion-item>\n            <ion-item *ngIf="userForm.get(\'password\').dirty && userForm.get(\'password\').hasError(\'required\')">\n                <p ion-text color="danger">Password is required.</p>\n            </ion-item>\n            <button color="primary" ion-button full round icon-start class="login-btn">\n                <ion-icon name="ios-contact-outline"></ion-icon>\n                LOGIN\n            </button>\n        </form>\n        <p (click)="openResetPassword()"><strong>Forgot your password?</strong></p>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Youness/Desktop/cityscan-front/src/pages/login/login.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_login_service__["a" /* LoginService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__core_session_session_service__["a" /* SessionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__core_session_session_service__["a" /* SessionService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_login_service__["a" /* LoginService */],
+        __WEBPACK_IMPORTED_MODULE_4__core_session_session_service__["a" /* SessionService */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
 ], LoginPage);
 
-var _a, _b, _c, _d, _e;
 //# sourceMappingURL=login.js.map
 
 /***/ }),
@@ -1042,8 +1042,7 @@ var AppConfig = (function () {
     return AppConfig;
 }());
 
-// public static API_ENDPOINT = 'https://cityscan.herokuapp.com/api';
-AppConfig.API_ENDPOINT = 'http://localhost:8080/api';
+AppConfig.API_ENDPOINT = 'https://cityscan.herokuapp.com/api';
 //# sourceMappingURL=app.config.js.map
 
 /***/ }),
@@ -1238,10 +1237,9 @@ var CityScanService = (function () {
 }());
 CityScanService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]])
 ], CityScanService);
 
-var _a;
 //# sourceMappingURL=cityscan.service.js.map
 
 /***/ })
