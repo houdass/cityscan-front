@@ -32,9 +32,10 @@
     <ion-row>
         <ion-col *ngFor="let product of result?.allData" col-4>
             <ion-card>
-                <div class="corner-ribbon left">{{ product.pricePerSquareMeter }} €/m<sup>2</sup></div>
-                <div class="corner-ribbon left bottom">{{ product.transactionType }}</div>
-                <div class="corner-ribbon right"><a [href]="product.href" target="_blank">Lien vers l'annonce</a></div>
+                <div class="ribbon-price">{{ product.pricePerSquareMeter }} €/m<sup>2</sup></div>
+                <div class="ribbon"><span>{{ product.transactionType }}</span></div>
+                <button ion-button color="light" round class="link"><a [href]="product.href" target="_blank"><ion-icon name="ios-link"></ion-icon> Lien</a>
+                </button>
                 <img [src]="product.image" class="realestate-image">
 
                 <ion-row>

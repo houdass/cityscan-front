@@ -8,7 +8,8 @@ export class SessionService {
   private data: any;
   private token: any;
 
-  constructor(public sessionDataService: SessionDataService) {}
+  constructor(public sessionDataService: SessionDataService) {
+  }
 
   // create session
   create(data: any): boolean {
@@ -21,6 +22,8 @@ export class SessionService {
       this.sessionDataService.create(data);
       if (data.token) {
         localStorage.setItem(SessionConstants.TOKEN, JSON.stringify(data.token));
+        const time = { timestamp: new Date().getTime() }
+        localStorage.setItem(SessionConstants.TIMESTAMP, JSON.stringify(time));
         return true;
       }
     }
@@ -41,7 +44,13 @@ export class SessionService {
   }
 
   isAuthenticated() {
-    return localStorage.getItem(SessionConstants.SESSION) && localStorage.getItem(SessionConstants.TOKEN);
+    const time = JSON.parse(localStorage.getItem(SessionConstants.TIMESTAMP));
+      if (time) {
+        const dateString = time.timestamp;
+        const now = new Date().getTime();
+        return localStorage.getItem(SessionConstants.SESSION) && localStorage.getItem(SessionConstants.TOKEN) && now - dateString < 80000;
+      }
+    return false;
   }
 
 }

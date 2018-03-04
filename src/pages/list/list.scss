@@ -4,6 +4,50 @@ page-list {
     height: 180px;
   }
 
+  .ribbon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px; height: 75px;
+    text-align: right;
+  }
+  .ribbon span {
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 100px;
+    display: block;
+    background: $blue;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px; right: -21px;
+  }
+  .ribbon span::before {
+    content: '';
+    position: absolute; left: 0px; top: 100%;
+    z-index: -1;
+    border-left: 3px solid $blue;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid $blue;
+  }
+  .ribbon span::after {
+    content: '';
+    position: absolute; right: 0px; top: 100%;
+    z-index: -1;
+    border-left: 3px solid transparent;
+    border-right: 3px solid $blue;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid $blue;
+  }
+
   .corner-ribbon {
     z-index: 10;
     width: 100px;
@@ -14,21 +58,11 @@ page-list {
     color: #f0f0f0;
     padding: 3px;
 
-    &.left {
-      background: #387ef5;
-      top: 15px;
-      left: 15px;
-    }
-
     &.bottom {
-      background: #f53d3d;
-      top: 50px;
-    }
-
-    &.right {
-      background: #32db64;
-      right: 15px;
-      top: 15px;
+      display: block;
+      background: $blue;
+      top: 169px;
+      left: 311px;
       a {
         color: white;
       }
@@ -38,5 +72,50 @@ page-list {
   .bold {
     font-weight: bold;
     font-size: 30px;
+  }
+
+  .card .button-inner {
+    color: black;
+  }
+
+  .ribbon-price {
+    position: absolute;
+    top: 1em;
+    left: 10px;
+    color: #fff;
+    background-color: $blue;
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+
+    &:before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background-color: $blue;
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background-color: darken($blue, 20%);
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-radius: 6px 0 0 6px;
+    }
+  }
+
+  .link {
+    position: absolute;
+    right: 15px;
+    top: 150px;
+    padding: 15px;
   }
 }

@@ -1,4 +1,5 @@
 export const SessionConstants = {
   SESSION: 'session',
-  TOKEN: 'token'
+  TOKEN: 'token',
+  TIMESTAMP: 'timestamp'
 };

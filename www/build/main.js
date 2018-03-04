@@ -249,6 +249,8 @@ var SessionService = (function () {
             this.sessionDataService.create(data);
             if (data.token) {
                 localStorage.setItem(__WEBPACK_IMPORTED_MODULE_2__constants_session_constants__["a" /* SessionConstants */].TOKEN, JSON.stringify(data.token));
+                var time = { timestamp: new Date().getTime() };
+                localStorage.setItem(__WEBPACK_IMPORTED_MODULE_2__constants_session_constants__["a" /* SessionConstants */].TIMESTAMP, JSON.stringify(time));
                 return true;
             }
         }
@@ -266,15 +268,22 @@ var SessionService = (function () {
         }
     };
     SessionService.prototype.isAuthenticated = function () {
-        return localStorage.getItem(__WEBPACK_IMPORTED_MODULE_2__constants_session_constants__["a" /* SessionConstants */].SESSION) && localStorage.getItem(__WEBPACK_IMPORTED_MODULE_2__constants_session_constants__["a" /* SessionConstants */].TOKEN);
+        var time = JSON.parse(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_2__constants_session_constants__["a" /* SessionConstants */].TIMESTAMP));
+        if (time) {
+            var dateString = time.timestamp;
+            var now = new Date().getTime();
+            return localStorage.getItem(__WEBPACK_IMPORTED_MODULE_2__constants_session_constants__["a" /* SessionConstants */].SESSION) && localStorage.getItem(__WEBPACK_IMPORTED_MODULE_2__constants_session_constants__["a" /* SessionConstants */].TOKEN) && now - dateString < 80000;
+        }
+        return false;
     };
     return SessionService;
 }());
 SessionService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */]) === "function" && _a || Object])
 ], SessionService);
 
+var _a;
 //# sourceMappingURL=session.service.js.map
 
 /***/ }),
@@ -286,7 +295,8 @@ SessionService = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SessionConstants; });
 var SessionConstants = {
     SESSION: 'session',
-    TOKEN: 'token'
+    TOKEN: 'token',
+    TIMESTAMP: 'timestamp'
 };
 //# sourceMappingURL=session.constants.js.map
 
@@ -414,12 +424,14 @@ var ListPage = (function () {
 ListPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/Youness/Desktop/cityscan-front/src/pages/list/list.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>List</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-row>\n        <ion-fab top right>\n            <button ion-fab>\n                <ion-icon name="document"></ion-icon>\n            </button>\n            <ion-fab-list side="left">\n                <button ion-fab (click)="pdf()">\n                    <ion-icon name="ios-pie"></ion-icon>\n                </button>\n            </ion-fab-list>\n        </ion-fab>\n    </ion-row>\n    <ion-row *ngIf="showInfos">\n        <ion-col>\n            <ion-card>\n                <ion-card-header class="bold">\n                    Nombres de bien trouvés : {{ result?.nbResults }}\n                    <br>\n                    <br>\n                    Prix moyen du m<sup>2</sup> : {{ result?.avgPricePerSquareMeter }} €/m<sup>2</sup>\n                </ion-card-header>\n            </ion-card>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col *ngFor="let product of result?.allData" col-4>\n            <ion-card>\n                <div class="corner-ribbon left">{{ product.pricePerSquareMeter }} €/m<sup>2</sup></div>\n                <div class="corner-ribbon left bottom">{{ product.transactionType }}</div>\n                <div class="corner-ribbon right"><a [href]="product.href" target="_blank">Lien vers l\'annonce</a></div>\n                <img [src]="product.image" class="realestate-image">\n\n                <ion-row>\n                    <ion-col>\n                        <button ion-button clear small text-lowercase>\n                            <i class="ft-house-size"></i>\n                            <div>{{ product.size }} m<sup>2</sup></div>\n                        </button>\n                    </ion-col>\n                    <ion-col>\n                        <button ion-button clear small text-lowercase>\n                            <i class="ft-plans"></i>\n                            <div>{{ product.nbRooms }}</div>\n                        </button>\n                    </ion-col>\n                    <ion-col>\n                        <button ion-button clear small text-lowercase>\n                            <i class="ft-bed"></i>\n                            <div>{{ product.nbBedrooms }}</div>\n                        </button>\n                    </ion-col>\n                    <ion-col>\n                        <button ion-button clear small text-lowercase>\n                            <i class="ft-coins"></i>\n                            <div>{{ product.price }} €</div>\n                        </button>\n                    </ion-col>\n                </ion-row>\n\n            </ion-card>\n        </ion-col>\n    </ion-row>\n</ion-content>'/*ion-inline-end:"/Users/Youness/Desktop/cityscan-front/src/pages/list/list.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/Youness/Desktop/cityscan-front/src/pages/list/list.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>List</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-row>\n        <ion-fab top right>\n            <button ion-fab>\n                <ion-icon name="document"></ion-icon>\n            </button>\n            <ion-fab-list side="left">\n                <button ion-fab (click)="pdf()">\n                    <ion-icon name="ios-pie"></ion-icon>\n                </button>\n            </ion-fab-list>\n        </ion-fab>\n    </ion-row>\n    <ion-row *ngIf="showInfos">\n        <ion-col>\n            <ion-card>\n                <ion-card-header class="bold">\n                    Nombres de bien trouvés : {{ result?.nbResults }}\n                    <br>\n                    <br>\n                    Prix moyen du m<sup>2</sup> : {{ result?.avgPricePerSquareMeter }} €/m<sup>2</sup>\n                </ion-card-header>\n            </ion-card>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col *ngFor="let product of result?.allData" col-4>\n            <ion-card>\n                <div class="ribbon-price">{{ product.pricePerSquareMeter }} €/m<sup>2</sup></div>\n                <div class="ribbon"><span>{{ product.transactionType }}</span></div>\n                <button ion-button color="light" round class="link"><a [href]="product.href" target="_blank"><ion-icon name="ios-link"></ion-icon> Lien</a>\n                </button>\n                <img [src]="product.image" class="realestate-image">\n\n                <ion-row>\n                    <ion-col>\n                        <button ion-button clear small text-lowercase>\n                            <i class="ft-house-size"></i>\n                            <div>{{ product.size }} m<sup>2</sup></div>\n                        </button>\n                    </ion-col>\n                    <ion-col>\n                        <button ion-button clear small text-lowercase>\n                            <i class="ft-plans"></i>\n                            <div>{{ product.nbRooms }}</div>\n                        </button>\n                    </ion-col>\n                    <ion-col>\n                        <button ion-button clear small text-lowercase>\n                            <i class="ft-bed"></i>\n                            <div>{{ product.nbBedrooms }}</div>\n                        </button>\n                    </ion-col>\n                    <ion-col>\n                        <button ion-button clear small text-lowercase>\n                            <i class="ft-coins"></i>\n                            <div>{{ product.price }} €</div>\n                        </button>\n                    </ion-col>\n                </ion-row>\n\n            </ion-card>\n        </ion-col>\n    </ion-row>\n</ion-content>'/*ion-inline-end:"/Users/Youness/Desktop/cityscan-front/src/pages/list/list.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_cityscan_service__["a" /* CityScanService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_cityscan_service__["a" /* CityScanService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_cityscan_service__["a" /* CityScanService */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
 ], ListPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=list.js.map
 
 /***/ }),
@@ -1254,10 +1266,9 @@ var CityScanService = (function () {
 }());
 CityScanService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]])
 ], CityScanService);
 
-var _a;
 //# sourceMappingURL=cityscan.service.js.map
 
 /***/ })
