@@ -280,10 +280,9 @@ var SessionService = (function () {
 }());
 SessionService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__session_data_service__["a" /* SessionDataService */]])
 ], SessionService);
 
-var _a;
 //# sourceMappingURL=session.service.js.map
 
 /***/ }),
@@ -1062,7 +1061,8 @@ var AppConfig = (function () {
     return AppConfig;
 }());
 
-AppConfig.API_ENDPOINT = 'https://cityscan.herokuapp.com/api';
+// public static API_ENDPOINT = 'https://cityscan.herokuapp.com/api';
+AppConfig.API_ENDPOINT = 'http://localhost:8080/api';
 //# sourceMappingURL=app.config.js.map
 
 /***/ }),
